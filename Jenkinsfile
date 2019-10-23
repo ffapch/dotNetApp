@@ -1,5 +1,11 @@
 stage('checkout') {
+    deleteDir()
     echo "Checkout initiated"
+
+    def scmVars = checkout scm
+    revision = scmVars.GIT_COMMIT
+
+    echo revision
 }
 stage('build') {
     echo "Build initiated"
