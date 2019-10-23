@@ -1,15 +1,19 @@
-stage('checkout') {
-    deleteDir()
-    echo "Checkout initiated"
+#!/usr/bin/env groovy
 
-    def scmVars = checkout scm
-    revision = scmVars.GIT_COMMIT
+node() {
+    stage('checkout') {
+        deleteDir()
+        echo "Checkout initiated"
 
-    echo revision
-}
-stage('build') {
-    echo "Build initiated"
-}
-stage('test') {
-    echo "Tests initiated"
+        def scmVars = checkout scm
+        revision = scmVars.GIT_COMMIT
+
+        echo revision
+    }
+    stage('build') {
+        echo "Build initiated"
+    }
+    stage('test') {
+        echo "Tests initiated"
+    }
 }
