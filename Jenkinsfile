@@ -12,6 +12,8 @@ node() {
     }
     stage('build') {
         echo "Build initiated"
+
+        sh "docker build -t dotnetapp --no-cache ."
     }
     stage('test') {
         echo "Tests initiated"
