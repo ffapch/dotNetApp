@@ -8,7 +8,7 @@ node() {
         def scmVars = checkout scm
         revision = scmVars.GIT_COMMIT
 
-        echo revision
+        echo "Revision: " + revision
     }
     stage('build') {
         echo "Build initiated"
